@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كوتشيات</title>
+    <link rel="stylesheet" href="ko.css">
+</head>
+
+<body>
+    <header>
+        <!-- إضافة لوجو السلة -->
+        <li class="cart-icon">
+            <a href="cart.html">
+                <img src="https://img.icons8.com/ios/50/ffffff/shopping-cart.png" alt="سلة التسوق" title="سلة التسوق">
+                <span class="cart-count">0</span>
+            </a>
+        </li>
+    </header>
+    <section id="shoes">
+        <h2>الكوتشيات</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="K1.png" alt="كوتشي رياضي">
+                <h3>كوتشي </h3>
+                <p>سعر: 80</p>
+                <!-- قائمة المقاسات -->
+                <label for="size1">اختر المقاس:</label>
+                <select id="size1">
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                </select>
+                <button onclick="goToCheckout('كوتشي ', 80, 'K1.png', document.getElementById('size1').value)">إضافة إلى
+                    السلة</button>
+            </div>
+
+            <div class="product">
+                <img src="K2.png" alt="كوتشي رياضي">
+                <h3>كوتشي </h3>
+                <p>سعر: 85</p>
+                <!-- قائمة المقاسات -->
+                <label for="size2">اختر المقاس:</label>
+                <select id="size2">
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                </select>
+                <button onclick="goToCheckout('كوتشي ', 85, 'K2.png', document.getElementById('size2').value)">إضافة إلى
+                    السلة</button>
+            </div>
+
+            <div class="product">
+                <img src="K3.png" alt="كوتشي رياضي">
+                <h3>كوتشي </h3>
+                <p>سعر: 85</p>
+                <!-- قائمة المقاسات -->
+                <label for="size3">اختر المقاس:</label>
+                <select id="size3">
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                </select>
+                <button onclick="goToCheckout('كوتشي ', 85, 'K3.png', document.getElementById('size3').value)">إضافة إلى
+                    السلة</button>
+            </div>
+
+            <div class="product">
+                <img src="K4.png" alt="كوتشي رياضي">
+                <h3>كوتشي </h3>
+                <p>سعر: 85</p>
+                <!-- قائمة المقاسات -->
+                <label for="size4">اختر المقاس:</label>
+                <select id="size4">
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                </select>
+                <button onclick="goToCheckout('كوتشي ', 85, 'K4.png', document.getElementById('size4').value)">إضافة إلى
+                    السلة</button>
+            </div>
+        </div>
+
+        <section>
+            <script src="page3.js">
+                function goToCheckout(productName, price, image, size) {
+                    // اجلب السلة من localStorage
+                    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+                    // إضافة المنتج مع المقاس إلى السلة
+                    cart.push({ name: productName, price: price, image: image, size: size, quantity: 1 });
+
+                    // حفظ السلة في localStorage
+                    localStorage.setItem('cart', JSON.stringify(cart));
+
+                    alert(`تم إضافة ${productName} مقاس ${size} إلى السلة بسعر ${price}`);
+                }
+            </script>
+</body>
+
+</html>

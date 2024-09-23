@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>متجر ملابس</title>
+    <link rel="stylesheet" href="page2.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            /* لون رمادي فاتح */
+            color: #333;
+            /* لون نص داكن */
+        }
+
+        header {
+            background: #355c7d;
+            /* لون أزرق داكن هادئ */
+            color: #ffffff;
+            padding: 15px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .hero {
+            background: #6c5b7b;
+            /* أزرق بنفسجي هادئ */
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero button {
+            background: #ff8c42;
+            /* لون برتقالي مميز */
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .hero button:hover {
+            background: #e07a3b;
+            /* برتقالي داكن عند التفاعل */
+        }
+
+        .product-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 20px;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 15px;
+            text-align: center;
+            background: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: calc(33.333% - 30px);
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .product:hover {
+            transform: scale(1.05);
+            /* تكبير المنتج عند المرور عليه */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            /* زيادة الظل */
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+            /* تأثير تكبير الصورة */
+        }
+
+        .product:hover img {
+            transform: scale(1.1);
+            /* تكبير الصورة عند المرور عليها */
+        }
+
+        .product button {
+            background: #ff8c42;
+            /* نفس اللون البرتقالي */
+            color: #ffffff;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .product button:hover {
+            background: #355c7d;
+            /* أزرق داكن عند التفاعل */
+        }
+
+        .social-links {
+            margin-top: 15px;
+        }
+
+        .social-links a {
+            margin-right: 10px;
+            display: inline-block;
+        }
+
+        .social-links img {
+            width: 35px;
+            height: 35px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-links img:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            background: #355c7d;
+            /* نفس الأزرق الداكن الهادئ */
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer h3 {
+            margin-top: 0;
+        }
+
+        footer p {
+            margin: 5px 0;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+            position: relative;
+            /* لجعل السلة تظهر في خط واحد مع الروابط */
+        }
+
+        nav ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* تنسيق اللوجو */
+        header h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .logo {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+            filter: brightness(0) invert(1);
+            /* لتحويل الشعار إلى الأبيض */
+        }
+
+        .cart-icon {
+            display: inline-block;
+            position: relative;
+        }
+
+        .cart-icon img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+        }
+
+        .cart-count {
+            background: #ff8c42;
+            color: #ffffff;
+            border-radius: 50%;
+            padding: 3px 7px;
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Fady Store</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="pans.html">البناطيل</a></li>
+                <li><a href="TS.html">التيشيرتات</a></li>
+                <li><a href="Ko.html">الكوتشيات</a></li>
+                <li><a href="#contact">تواصل معنا</a></li>
+                <!-- إضافة رمز السلة هنا -->
+                <li class="cart-icon">
+                    <a href="cart.html">
+                        <img src="https://img.icons8.com/ios/50/ffffff/shopping-cart.png" alt="سلة التسوق"
+                            title="سلة التسوق">
+                        <span class="cart-count">0</span>
+                    </a>
+                </li>
+
+            </ul>
+        </nav>
+    </header>
+
+
+    <!-- <section id="home" class="hero">
+        <h2>أفضل الملابس </h2>
+        <p>تسوق الآن للحصول على أفضل الملابس بجودة عالية</p>
+        <button onclick="scrollToProducts()">تسوق الآن</button>
+    </section> -->
+
+    <section id="pants">
+        <h2>البناطيل</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="1.png" alt="بنطلون وايد ليج">
+                <h3>بنطلون وايد ليج</h3>
+                <p>سعر: 50</p>
+                <!-- قائمة المقاسات -->
+                <label for="P.size1">اختر المقاس:</label>
+                <select id="P.size1">
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="34">34</option>
+                    <option value="36">36</option>
+                    <option value="38">38</option>
+                    <option value="40">40</option>
+                </select>
+                <button
+                    onclick="goToCheckout('بنطلون وايد ليج', 50, '1.png', document.getElementById('P.size1').value)">إضافة
+                    إلى السلة</button>
+            </div>
+
+            <div class="product">
+                <img src="2.png" alt="بنطلون وايد ليج">
+                <h3>بنطلون وايد ليج</h3>
+                <p>سعر: 50</p>
+                <!-- قائمة المقاسات -->
+                <label for="P.size2">اختر المقاس:</label>
+                <select id="P.size2">
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="34">34</option>
+                    <option value="36">36</option>
+                    <option value="38">38</option>
+                    <option value="40">40</option>
+                </select>
+                <button
+                    onclick="goToCheckout('بنطلون وايد ليج', 50, '2.png', document.getElementById('P.size2').value)">إضافة
+                    إلى السلة</button>
+            </div>
+
+            <div class="product">
+                <img src="3.png" alt="بنطلون وايد ليج">
+                <h3>بنطلون وايد ليج</h3>
+                <p>سعر: 50</p>
+                <!-- قائمة المقاسات -->
+                <label for="P.size3">اختر المقاس:</label>
+                <select id="P.size3">
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="34">34</option>
+                    <option value="36">36</option>
+                    <option value="38">38</option>
+                    <option value="40">40</option>
+                </select>
+                <button
+                    onclick="goToCheckout('بنطلون وايد ليج', 50, '3.png', document.getElementById('P.size3').value)">إضافة
+                    إلى السلة</button>
+            </div>
+
+            <div class="product">
+                <img src="4.png" alt="بنطلون وايد ليج">
+                <h3>بنطلون وايد ليج</h3>
+                <p>سعر: 50</p>
+                <!-- قائمة المقاسات -->
+                <label for="P.size4">اختر المقاس:</label>
+                <select id="P.size4">
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="34">34</option>
+                    <option value="36">36</option>
+                    <option value="38">38</option>
+                    <option value="40">40</option>
+                </select>
+                <button
+                    onclick="goToCheckout('بنطلون وايد ليج', 50, '4.png', document.getElementById('P.size4').value)">إضافة
+                    إلى السلة</button>
+            </div>
+
+            <div class="product">
+                <img src="6.png" alt="بنطلون وايد ليج">
+                <h3>بنطلون وايد ليج</h3>
+                <p>سعر: 50</p>
+                <!-- قائمة المقاسات -->
+                <label for="P.size5">اختر المقاس:</label>
+                <select id="P.size5">
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="34">34</option>
+                    <option value="36">36</option>
+                    <option value="38">38</option>
+                    <option value="40">40</option>
+                </select>
+                <button
+                    onclick="goToCheckout('بنطلون وايد ليج', 50, '6.png', document.getElementById('P.size5').value)">إضافة
+                    إلى السلة</button>
+            </div>
+
+            <div class="product">
+                <img src="7.png" alt="بنطلون وايد ليج">
+                <h3>بنطلون وايد ليج</h3>
+                <p>سعر: 50</p>
+                <!-- قائمة المقاسات -->
+                <label for="P.size6">اختر المقاس:</label>
+                <select id="P.size6">
+                    <option value="30">30</option>
+                    <option value="32">32</option>
+                    <option value="34">34</option>
+                    <option value="36">36</option>
+                    <option value="38">38</option>
+                    <option value="40">40</option>
+                </select>
+                <button
+                    onclick="goToCheckout('بنطلون وايد ليج', 50, '7.png', document.getElementById('P.size6').value)">إضافة
+                    إلى السلة</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- قسم التيشيرتات -->
+    <section id="tshirts">
+        <h2>التيشيرتات</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="T1.png" alt="تيشيرت ">
+                <h3>تيشيرت رياضي</h3>
+                <p>سعر: 30</p>
+                <label for="T.size1">اختر المقاس:</label>
+                <select id="T.size1">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+                <button onclick="goToCheckout('تيشيرت', 30, 'T1.png', document.getElementById('T.size1').value)">إضافة إلى
+                    السلة</button>
+            </div>
+            <div class="product">
+                <img src="T2.png" alt="تيشيرت ">
+                <h3>تيشيرت رياضي</h3>
+                <p>سعر: 30</p>
+                <label for="T.size2">اختر المقاس:</label>
+                <select id="T.size2">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+                <button onclick="goToCheckout('تيشيرت', 30, 'T2.png', document.getElementById('T.size2').value)">إضافة إلى
+                    السلة</button>
+            </div>
+            <div class="product">
+                <img src="T3.png" alt="تيشيرت ">
+                <h3>تيشيرت رياضي</h3>
+                <p>سعر: 30</p>
+                <label for="T.size3">اختر المقاس:</label>
+                <select id="T.size3">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+                <button onclick="goToCheckout('تيشيرت', 30, 'T3.png', document.getElementById('T.size3').value)">إضافة إلى
+                    السلة</button>
+            </div>
+            <div class="product">
+                <img src="T4.png" alt="تيشيرت رياضي">
+                <h3>تيشيرت رياضي</h3>
+                <p>سعر: 30</p>
+                <label for="T.size4">اختر المقاس:</label>
+                <select id="T.size4">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+                <button onclick="goToCheckout('تيشيرت', 30, 'T4.png', document.getElementById('T.size4').value)">إضافة إلى
+                    السلة</button>
+            </div>
+            <div class="product">
+                <img src="T5.png" alt="تيشيرت رياضي">
+                <h3>تيشيرت رياضي</h3>
+                <p>سعر: 30</p>
+                <label for="T.size5">اختر المقاس:</label>
+                <select id="T.size5">
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                    <option value="XXL">XXL</option>
+                </select>
+                <button onclick="goToCheckout('تيشيرت', 30, 'T5.png', document.getElementById('T.size5').value)">إضافة إلى
+                    السلة</button>
+            </div>
+
+            <!-- إضافة المزيد من التيشيرتات -->
+        </div>
+    </section>
+
+    <section id="shoes">
+        <h2>الكوتشيات</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="K1.png" alt="كوتشي رياضي">
+                <h3>كوتشي </h3>
+                <p>سعر: 80</p>
+                <!-- قائمة المقاسات -->
+                <label for="S.size1">اختر المقاس:</label>
+                <select id="S.size1">
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                </select>
+                <button onclick="goToCheckout('كوتشي ', 80, 'K1.png', document.getElementById('S.size1').value)">إضافة إلى
+                    السلة</button>
+            </div>
+
+            <div class="product">
+                <img src="K2.png" alt="كوتشي رياضي">
+                <h3>كوتشي </h3>
+                <p>سعر: 85</p>
+                <!-- قائمة المقاسات -->
+                <label for="S.size2">اختر المقاس:</label>
+                <select id="S.size2">
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                </select>
+                <button onclick="goToCheckout('كوتشي ', 85, 'K2.png', document.getElementById('S.size2').value)">إضافة إلى
+                    السلة</button>
+            </div>
+
+            <div class="product">
+                <img src="K3.png" alt="كوتشي رياضي">
+                <h3>كوتشي </h3>
+                <p>سعر: 85</p>
+                <!-- قائمة المقاسات -->
+                <label for="S.size3">اختر المقاس:</label>
+                <select id="S.size3">
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                </select>
+                <button onclick="goToCheckout('كوتشي ', 85, 'K3.png', document.getElementById('S.size3').value)">إضافة إلى
+                    السلة</button>
+            </div>
+
+            <div class="product">
+                <img src="K4.png" alt="كوتشي رياضي">
+                <h3>كوتشي </h3>
+                <p>سعر: 85</p>
+                <!-- قائمة المقاسات -->
+                <label for="S.size4">اختر المقاس:</label>
+                <select id="s.size4">
+                    <option value="40">40</option>
+                    <option value="41">41</option>
+                    <option value="42">42</option>
+                    <option value="43">43</option>
+                </select>
+                <button onclick="goToCheckout('كوتشي ', 85, 'K4.png', document.getElementById('S.size4').value)">إضافة إلى
+                    السلة</button>
+            </div>
+        </div>
+
+        <section>
+
+            <footer id="contact">
+                <h3> تواصل معنا</h3>
+                <p>البريد الإلكتروني: fadytharwat975@gmail.com</p>
+                <p>الهاتف: 01202549207</p>
+
+                <div class="social-links">
+                    <a href="https://wa.me/qr/FRWZ5XJ7CJP5P1" target="_blank" title="اتصل بنا عبر الواتس آب">
+                        <img src="WhatsApp.png" alt="واتس اب">
+                    </a>
+                    <a href="https://www.facebook.com/fady.sarwt.73?mibextid=ZbWKwL" target="_blank"
+                        title="تواصل معنا على فيسبوك">
+                        <img src="Facebook.png" alt="فيسبوك">
+                    </a>
+                    <a href="https://www.instagram.com/fady_tharwat12?igsh=YmZnN2d4eWIxOG9h" target="_blank"
+                        title="تابعنا على انستجرام">
+                        <img src="Instgram.png" alt="انستجرام">
+                    </a>
+                    <a href="https://t.me/fadysarwat12" target="_blank" title="تواصل معنا التلجرام">
+                        <img src="Telgram.png" alt="تلجرام">
+                    </a>
+                </div>
+            </footer>
+
+            <script src="page3.js"></script>
+</body>
+
+</html>

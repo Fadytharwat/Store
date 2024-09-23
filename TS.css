@@ -1,0 +1,200 @@
+/* القواعد الأساسية لجميع الأجهزة */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    direction: rtl;
+    padding: 20px;
+}
+
+header {
+    display: flex; /* استخدام Flexbox لتنسيق العناصر بجانب بعض */
+    align-items: center; /* محاذاة العناصر عمودياً في المنتصف */
+    justify-content: space-between; /* توزيع العناصر بالتساوي بين الأطراف */
+    padding: 10px 20px; /* مسافات حول المحتوى */
+    background-color: #10426e; /* خلفية خفيفة للهيدر */
+    border-bottom: 1px solid #ddd; /* خط فاصل أسفل الهيدر */
+    font-size: 1.5em; /* حجم الخط في الهيدر */
+}
+
+.cart-icon {
+    list-style: none; /* إزالة النقاط من القائمة */
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.cart-icon img {
+    width: 30px; /* تكبير حجم الأيقونة */
+    height: 30px;
+    filter: invert(100%); /* لجعل الأيقونة بيضاء */
+}
+
+.cart-count {
+    background-color: #ff8c42; /* لون الرقم */
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    position: absolute;
+    top: 10px; /* تقليل المسافة من الأعلى */
+    right: -10px; /* المسافة من اليمين */
+    font-size: 12px;
+}
+
+/* تنسيق المنتجات */
+#shoes h2 {
+    text-align: center;
+    color: #3b5998;
+    margin-bottom: 20px;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.product {
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.product img {
+    max-width: 100%;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.product h3 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+.product p {
+    margin-bottom: 15px;
+    font-size: 1em;
+    color: #666;
+}
+
+.product button {
+    background-color: #3b5998;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+.product button:hover {
+    background-color: #344e86;
+}
+
+.product:hover {
+    transform: scale(1.05);
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.1em;
+    color: #3b5998;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* قواعد الاستجابة للشاشات الصغيرة */
+@media (max-width: 1024px) {
+    header {
+        font-size: 1.2em;
+        padding: 15px;
+    }
+    
+    .cart-icon img {
+        width: 24px;
+        height: 24px;
+    }
+
+    .cart-count {
+        font-size: 10px;
+        padding: 4px 8px;
+    }
+}
+
+@media (max-width: 768px) {
+    .product-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product {
+        width: 90%;
+        max-width: 300px;
+    }
+    
+    header {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    .cart-icon {
+        margin-right: 0;
+    }
+
+    .cart-icon img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .cart-count {
+        font-size: 8px;
+        padding: 3px 6px;
+        top: 5px;
+        right: -5px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 0.8em;
+        padding: 10px;
+    }
+
+    .product {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .cart-icon img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .cart-count {
+        font-size: 8px;
+        padding: 3px 6px;
+        top: 5px;
+        right: -5px;
+    }
+}
